@@ -20,13 +20,13 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 border-t-[2px] border-accent ${
           scrolled
-            ? 'bg-page/80 backdrop-blur-md border-b border-line/60'
-            : 'bg-transparent'
+            ? 'bg-page/90 backdrop-blur-md border-b border-line'
+            : 'bg-transparent border-b border-transparent'
         }`}
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 h-16 flex items-center justify-between">
 
           {/* Logo */}
           <a href="/" aria-label="Home" className="flex-shrink-0">
@@ -37,24 +37,24 @@ export default function Navbar() {
           {/* Desktop */}
           <div className="hidden md:flex items-center gap-6">
             <NavLinks />
-            <div className="flex items-center gap-2 pl-2 border-l border-line">
+            <div className="flex items-center gap-2 pl-4 border-l border-line">
               <VersionsDropdown />
               <ThemeToggle />
             </div>
           </div>
 
-          {/* Mobile actions */}
+          {/* Mobile */}
           <div className="flex md:hidden items-center gap-2">
             <ThemeToggle />
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
-              className="w-9 h-9 grid place-items-center rounded-lg
+              className="w-9 h-9 grid place-items-center rounded-md
                 bg-surface text-ink ring-1 ring-line
                 hover:ring-accent/40 transition-all"
             >
-              <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.75">
                 <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h10" />
               </svg>
             </button>
