@@ -1,3 +1,55 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-page:    255 255 255;
+    --color-surface: 245 245 245;
+    --color-line:    229 229 229;
+    --color-ink:     10 10 10;
+    --color-muted:   115 115 115;
+    --color-accent:  59 130 246;
+  }
+
+  .dark {
+    --color-page:    12 12 12;
+    --color-surface: 22 22 22;
+    --color-line:    36 36 36;
+    --color-ink:     240 240 240;
+    --color-muted:   115 115 115;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-page text-ink font-sans;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  img,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+}
