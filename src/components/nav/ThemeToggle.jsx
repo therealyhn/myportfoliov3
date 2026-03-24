@@ -10,8 +10,8 @@ export default function ThemeToggle({ className = '' }) {
       onClick={toggleTheme}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       className={`inline-flex items-center justify-center w-9 h-9 rounded-lg
-        bg-surface text-ink ring-1 ring-line
-        hover:ring-accent/40 transition-all duration-200
+        bg-transparent text-ink
+        hover:text-accent transition-all duration-200
         focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60
         active:scale-[0.95] ${className}`}
     >

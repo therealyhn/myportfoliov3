@@ -35,7 +35,7 @@ export default function VersionsDropdown() {
         onClick={() => setOpen((o) => !o)}
         aria-haspopup="menu"
         aria-expanded={open}
-        className="inline-flex items-center gap-1.5 px-3 h-9 rounded-lg text-sm
+        className="inline-flex items-center gap-1.5 px-3 h-9 rounded-sm text-sm
           bg-surface text-ink ring-1 ring-line
           hover:ring-accent/40 transition-all duration-200
           focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60
@@ -54,7 +54,7 @@ export default function VersionsDropdown() {
         <ul
           ref={menuRef}
           role="menu"
-          className="absolute right-0 mt-2 w-28 overflow-hidden rounded-lg
+          className="absolute right-0 mt-2 w-16 overflow-hidden rounded-sm
             bg-surface text-ink ring-1 ring-line shadow-lg
             animate-in fade-in slide-in-from-top-1 duration-150"
         >
