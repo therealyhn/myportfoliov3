@@ -18,7 +18,7 @@ export default function HeroPanelName({ active }) {
           src={logoNoText}
           alt=""
           aria-hidden="true"
-          className="w-[clamp(26rem,75vw,72rem)] opacity-[0.04]"
+          className="w-[clamp(26rem,75vw,72rem)] opacity-[0.08]"
         />
       </div>
 

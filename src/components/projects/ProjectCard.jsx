@@ -58,11 +58,6 @@ export default function ProjectCard({ project, index = 0 }) {
             </p>
           )}
 
-          {/* Index number — always visible, top-right */}
-          <span className="absolute top-3 right-3 text-[10px] font-bold tracking-widest text-white/70 font-mono">
-            {num}
-          </span>
-
           {/* Bottom accent line */}
           <div className="absolute bottom-0 left-0 right-0 h-px bg-accent/0 group-hover/project:bg-accent/60 transition-colors duration-300" />
         </div>
