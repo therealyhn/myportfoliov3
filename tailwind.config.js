@@ -24,11 +24,11 @@ export default {
       keyframes: {
         marquee: {
           '0%':   { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(-25%)' },
         },
       },
       animation: {
-        marquee: 'marquee 18s linear infinite',
+        marquee: 'marquee 30s linear infinite',
       },
     },
   },

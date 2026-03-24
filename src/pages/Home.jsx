@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import Navbar from '../components/layout/Navbar'
 import HeroSection from '../components/sections/HeroSection'
 import ProjectsSection from '../components/sections/ProjectsSection'
+import AboutSection from '../components/sections/AboutSection'
 
 function Home() {
   const { hash } = useLocation()
@@ -23,7 +24,7 @@ function Home() {
       <main className="pt-16">
         <HeroSection />
         <ProjectsSection />
-        {/* sections go here */}
+        <AboutSection />
       </main>
     </>
   )
