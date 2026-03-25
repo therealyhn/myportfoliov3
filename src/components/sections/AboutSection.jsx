@@ -132,10 +132,48 @@ export default function AboutSection() {
 
           {/* Left — bio */}
           <div className="flex-1 flex flex-col gap-8">
+            {/* Mobile only: image + badges + buttons side by side */}
+            <div className="flex gap-4 items-start sm:hidden">
+              <div className="relative flex-shrink-0 w-[calc(50%-8px)]">
+                <div className="absolute -top-3 right-0 h-0.5 w-12 bg-accent" />
+                <div
+                  className="relative overflow-hidden w-full"
+                  style={{ aspectRatio: '3/4' }}
+                >
+                  <img
+                    src={heroImg}
+                    alt="Jovan Ljušić"
+                    className="w-full h-full object-cover object-top"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 border-l-2 border-b-2 border-accent/50 pointer-events-none" />
+                  <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-page/60 to-transparent pointer-events-none" />
+                </div>
+                <div className="absolute -bottom-3 left-0 h-0.5 w-6 bg-accent/50" />
+              </div>
+              <div className="flex flex-col gap-3 min-w-0 flex-1 pt-1">
+                <div className="flex flex-col gap-1.5">
+                  {['Serbia · Remote', '2+ yrs experience', 'Open to work'].map((label) => (
+                    <span
+                      key={label}
+                      className="px-2.5 py-1 text-xs font-medium text-muted border-l-2 border-accent/30 bg-surface"
+                    >
+                      {label}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex flex-col gap-2 pt-1">
+                  <Button variant="primary" href="#contact" arrow>Get in touch</Button>
+                  <Button variant="ghost" href="/JovanLjusicCV.pdf" download>Download CV</Button>
+                </div>
+              </div>
+            </div>
+
             <div className="flex flex-col sm:flex-row lg:flex-col gap-8 items-start">
 
-              {/* Photo — mobile/tablet shows inline, desktop hidden here (shown right) */}
-              <div className="relative flex-shrink-0 lg:hidden">
+              {/* Photo — sm/tablet shows inline, desktop hidden here (shown right) */}
+              <div className="relative flex-shrink-0 hidden sm:block lg:hidden">
                 <div className="absolute -top-3 right-0 h-0.5 w-12 bg-accent" />
                 <div
                   className="relative overflow-hidden"
@@ -168,8 +206,8 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Badges */}
-            <div className="flex flex-wrap gap-2">
+            {/* Badges — sm+ only (mobile shows them next to image) */}
+            <div className="hidden sm:flex flex-wrap gap-2">
               {[
                 { label: 'Serbia · Remote' },
                 { label: '2+ yrs experience' },
@@ -184,8 +222,8 @@ export default function AboutSection() {
               ))}
             </div>
 
-            {/* CTA */}
-            <div className="flex flex-wrap gap-3 pt-2">
+            {/* CTA — sm+ only */}
+            <div className="hidden sm:flex flex-wrap gap-3 pt-2">
               <Button variant="primary" href="#contact" arrow>Get in touch</Button>
               <Button variant="ghost" href="/JovanLjusicCV.pdf" download>Download CV</Button>
             </div>

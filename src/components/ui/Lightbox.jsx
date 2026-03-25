@@ -64,7 +64,7 @@ export default function Lightbox({ images, activeIndex, onClose, onPrev, onNext 
 
       {/* Image */}
       <div
-        className="relative w-full h-full p-16 md:p-24 flex items-center justify-center pointer-events-none"
+        className="relative w-full h-full p-4 sm:p-10 md:p-16 lg:p-24 flex items-center justify-center pointer-events-none"
         onClick={(e) => e.stopPropagation()}
       >
         <img

@@ -106,10 +106,12 @@ export default function ProjectBodySwiper({ project }) {
                 type="button"
                 onClick={() => setCurrent(i)}
                 aria-label={`Image ${i + 1}`}
-                className={`h-1 rounded-full transition-all duration-200 ${
+                className="flex items-center justify-center py-2 px-0.5"
+              >
+                <span className={`block h-1 rounded-full transition-all duration-200 ${
                   i === current ? 'w-4 bg-accent' : 'w-1.5 bg-muted/30'
-                }`}
-              />
+                }`} />
+              </button>
             ))}
           </div>
         </div>

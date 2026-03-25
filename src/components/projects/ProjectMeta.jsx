@@ -39,7 +39,7 @@ export default function ProjectMeta({ project }) {
         <div>
           <p className="text-xs font-light leading-snug text-accent mb-3">overview</p>
           <div className="relative">
-            <div ref={overviewRef} className="max-h-44 md:max-h-[500px] overflow-y-auto no-scrollbar">
+            <div ref={overviewRef} className="max-h-44 sm:max-h-72 md:max-h-[500px] overflow-y-auto no-scrollbar">
               <p className="text-base sm:text-lg text-muted leading-relaxed font-light">
                 {project.overview}
               </p>

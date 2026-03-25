@@ -55,7 +55,7 @@ export default function Project() {
         {/* Mobile layout */}
         <section className="px-4 pt-6 sm:hidden">
           <div className="mt-24">
-            <h1 className="text-[52px] font-black leading-[1.0] tracking-tight text-ink">
+            <h1 className="font-black leading-[1.0] tracking-tight text-ink" style={{ fontSize: 'clamp(2.2rem, 13vw, 3.25rem)' }}>
               {project.title}
             </h1>
             {project.tagline && (
