@@ -7,10 +7,12 @@ import ProjectBody from '../components/projects/ProjectBody'
 import ProjectBodySwiper from '../components/projects/ProjectBodySwiper'
 import useProjectsContent from '../hooks/useProjectsContent'
 import useTranslation from '../hooks/useTranslation'
+import { useLang } from '../context/LangContext'
 
 export default function Project() {
   const { slug } = useParams()
-  const { loading, data: projects } = useProjectsContent()
+  const { lang } = useLang()
+  const { loading, data: projects } = useProjectsContent(lang)
   const { t } = useTranslation()
 
   const project = projects.find((p) => p.slug === slug)

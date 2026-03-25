@@ -1,16 +1,61 @@
-# React + Vite
+# Jovan Ljušić — Portfolio v3
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio site at [jovanljusic.com](https://jovanljusic.com).
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 18** + Vite
+- **Tailwind CSS v3**
+- **Sanity CMS** — content source (projects, shared dataset with v2)
+- **React Router v6**
+- **GitHub Actions** — auto-deploy to Hostinger via FTP on push to `main`
 
-## React Compiler
+## Local development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Sanity Studio (separate):
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+cd sanity
+npm install
+sanity dev
+```
+
+## Build
+
+```bash
+npm run build
+```
+
+Output goes to `dist/`.
+
+## Deploy
+
+Every push to `main` triggers the GitHub Actions workflow which builds and deploys via FTP to Hostinger.
+
+Required GitHub Secrets:
+
+| Secret | Description |
+|---|---|
+| `FTP_HOST` | Hostinger FTP host |
+| `FTP_USERNAME` | FTP username |
+| `FTP_PASSWORD` | FTP password |
+| `FTP_PORT` | FTP port (21 or 990) |
+
+## Environment
+
+Create a `.env` file at the root (never commit):
+
+```env
+VITE_SANITY_PROJECT_ID=your_project_id
+VITE_SANITY_DATASET=production
+```
+
+## Previous versions
+
+- v2 → [v2.jovanljusic.com](https://v2.jovanljusic.com)
+- v1 → [v1.jovanljusic.com](https://v1.jovanljusic.com)

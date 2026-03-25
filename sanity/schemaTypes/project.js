@@ -12,6 +12,12 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'title_sr',
+      title: 'Title (Serbian)',
+      type: 'string',
+      description: 'Falls back to Title if empty.',
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -25,11 +31,24 @@ export default defineType({
       description: 'Short one-line project description shown in cards.',
     }),
     defineField({
+      name: 'tagline_sr',
+      title: 'Tagline (Serbian)',
+      type: 'string',
+      description: 'Falls back to Tagline if empty.',
+    }),
+    defineField({
       name: 'overview',
       title: 'Overview',
       type: 'text',
       rows: 5,
       description: 'Full project description shown on the project page.',
+    }),
+    defineField({
+      name: 'overview_sr',
+      title: 'Overview (Serbian)',
+      type: 'text',
+      rows: 5,
+      description: 'Falls back to Overview if empty.',
     }),
     defineField({
       name: 'role',
@@ -38,29 +57,10 @@ export default defineType({
       description: 'Your role on the project, e.g. "Full Stack Developer".',
     }),
     defineField({
-      name: 'title_sr',
-      title: 'Title (Serbian)',
-      type: 'string',
-      description: 'Serbian translation of the title. Falls back to Title if empty.',
-    }),
-    defineField({
-      name: 'tagline_sr',
-      title: 'Tagline (Serbian)',
-      type: 'string',
-      description: 'Serbian translation of the tagline. Falls back to Tagline if empty.',
-    }),
-    defineField({
-      name: 'overview_sr',
-      title: 'Overview (Serbian)',
-      type: 'text',
-      rows: 5,
-      description: 'Serbian translation of the overview. Falls back to Overview if empty.',
-    }),
-    defineField({
       name: 'role_sr',
       title: 'Role (Serbian)',
       type: 'string',
-      description: 'Serbian translation of the role. Falls back to Role if empty.',
+      description: 'Falls back to Role if empty.',
     }),
     defineField({
       name: 'year',

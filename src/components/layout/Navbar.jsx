@@ -47,13 +47,13 @@ export default function Navbar() {
 
           {/* Mobile */}
           <div className="flex md:hidden items-center gap-2">
-            <LangToggle />
             <ThemeToggle />
+            <LangToggle />
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
-              className="w-9 h-9 grid place-items-center rounded-md
+              className="w-9 h-9 grid place-items-center rounded-sm
                 bg-surface text-ink ring-1 ring-line
                 hover:ring-accent/40 transition-all"
             >

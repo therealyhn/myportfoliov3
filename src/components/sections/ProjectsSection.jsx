@@ -2,6 +2,7 @@ import { useState } from 'react'
 import useProjectsContent from '../../hooks/useProjectsContent'
 import useTranslation from '../../hooks/useTranslation'
 import ProjectsGrid from '../projects/ProjectsGrid'
+import { useLang } from '../../context/LangContext'
 
 function CardSkeleton() {
   return (
@@ -14,7 +15,8 @@ function CardSkeleton() {
 }
 
 export default function ProjectsSection() {
-  const { data: projects, loading, error } = useProjectsContent()
+  const { lang } = useLang()
+  const { data: projects, loading, error } = useProjectsContent(lang)
   const { t } = useTranslation()
 
   const [initialCount] = useState(() =>

@@ -54,8 +54,7 @@ export default function NavLinks({ onClick, mobile = false }) {
               ? 'group flex items-center gap-3 uppercase text-base font-semibold text-accent cursor-pointer'
               : 'group relative flex items-center uppercase gap-1 py-1 text-sm font-semibold text-accent hover:text-accent/80 transition-colors duration-200 cursor-pointer'
           }>
-            {mobile && <span className="w-5 uppercase" />}
-            {t('nav.resume')}
+              {t('nav.resume')}
             <svg className="w-3 h-3 opacity-60" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.75">
               <path strokeLinecap="round" strokeLinejoin="round" d="M2 6h8M6 2l4 4-4 4" />
             </svg>
