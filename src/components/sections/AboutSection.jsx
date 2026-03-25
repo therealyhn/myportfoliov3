@@ -156,15 +156,14 @@ export default function AboutSection() {
 
               <div className="flex flex-col gap-5">
                 <p className="text-base sm:text-lg text-muted leading-relaxed font-light">
-                  I'm a fullstack developer based in Serbia, focused on building fast,
+                  I'm a frontend engineer based in Serbia, focused on building fast,
                   accessible, and visually sharp digital products — from marketing sites
                   to complex web and mobile applications.
                 </p>
                 <p className="text-base sm:text-lg text-muted leading-relaxed font-light">
-                  I work across the full stack — handling everything from database
-                  architecture and API design to pixel-perfect UI and performance
-                  optimization. I care about the details that most people don't notice
-                  until they're missing.
+                  I also work across the full stack when the project calls for it —
+                  handling API design, database architecture, and backend logic.
+                  I care about the details that most people don't notice until they're missing.
                 </p>
               </div>
             </div>
