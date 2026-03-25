@@ -1,3 +1,5 @@
+import useTranslation from '../../hooks/useTranslation'
+
 const TAGS = [
   {
     name: 'React',
@@ -77,6 +79,8 @@ const fadeIn = (active, delay) => ({
 })
 
 export default function HeroPanelRole({ active }) {
+  const { t } = useTranslation()
+
   return (
     <div className="w-screen h-full flex-shrink-0 relative flex flex-col">
       <div className="relative flex-1 flex flex-col justify-center px-8 sm:px-16 lg:px-24 max-w-7xl mx-auto w-full pb-14">
@@ -92,13 +96,13 @@ export default function HeroPanelRole({ active }) {
           }}
         >
           <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.28em] text-accent mb-5">
-            Front-End Engineer
+            {t('hero.role')}
           </p>
           <h2
             className="font-black text-ink tracking-tight leading-[0.88]"
             style={{ fontSize: 'clamp(3rem, 9vw, 8rem)' }}
           >
-            Building for<br />the web since<br />
+            {t('hero.building')}<br />
             <span className="text-muted/35">2024</span>
           </h2>
         </div>

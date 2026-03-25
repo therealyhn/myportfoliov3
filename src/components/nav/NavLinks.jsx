@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom'
+import useTranslation from '../../hooks/useTranslation'
 
 const LINKS = [
-  { href: '/#projects', label: 'Projects', type: 'hash' },
-  { href: '/#about', label: 'About', type: 'hash' },
-  { href: '/#contact', label: 'Contact', type: 'hash' },
-  { href: '/pricing', label: 'Pricing', type: 'route' },
+  { href: '/#projects', key: 'nav.projects', type: 'hash' },
+  { href: '/#about', key: 'nav.about', type: 'hash' },
+  { href: '/#contact', key: 'nav.contact', type: 'hash' },
+  { href: '/pricing', key: 'nav.pricing', type: 'route' },
 ]
 
 function NavItem({ children, mobile = false }) {
   if (mobile) {
     return (
-      <span className="group flex items-center  gap-3 text-base font-semibold text-ink hover:text-accent transition-colors duration-200 cursor-pointer">
+      <span className="group flex items-center gap-3 text-base font-semibold text-ink hover:text-accent transition-colors duration-200 cursor-pointer">
         {children}
       </span>
     )
@@ -26,19 +27,20 @@ function NavItem({ children, mobile = false }) {
 }
 
 export default function NavLinks({ onClick, mobile = false }) {
+  const { t } = useTranslation()
   const base = mobile ? 'flex flex-col gap-5' : 'flex items-center gap-6'
 
   return (
     <ul className={base}>
-      {LINKS.map(({ href, label, type }) => (
-        <li key={label} onClick={onClick}>
+      {LINKS.map(({ href, key, type }) => (
+        <li key={key} onClick={onClick}>
           {type === 'hash' ? (
             <a href={href}>
-              <NavItem mobile={mobile}>{label}</NavItem>
+              <NavItem mobile={mobile}>{t(key)}</NavItem>
             </a>
           ) : (
             <Link to={href}>
-              <NavItem mobile={mobile}>{label}</NavItem>
+              <NavItem mobile={mobile}>{t(key)}</NavItem>
             </Link>
           )}
         </li>
@@ -53,7 +55,7 @@ export default function NavLinks({ onClick, mobile = false }) {
               : 'group relative flex items-center uppercase gap-1 py-1 text-sm font-semibold text-accent hover:text-accent/80 transition-colors duration-200 cursor-pointer'
           }>
             {mobile && <span className="w-5 uppercase" />}
-            Resume
+            {t('nav.resume')}
             <svg className="w-3 h-3 opacity-60" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.75">
               <path strokeLinecap="round" strokeLinejoin="round" d="M2 6h8M6 2l4 4-4 4" />
             </svg>

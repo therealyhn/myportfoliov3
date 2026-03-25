@@ -6,10 +6,12 @@ import ProjectMeta from '../components/projects/ProjectMeta'
 import ProjectBody from '../components/projects/ProjectBody'
 import ProjectBodySwiper from '../components/projects/ProjectBodySwiper'
 import useProjectsContent from '../hooks/useProjectsContent'
+import useTranslation from '../hooks/useTranslation'
 
 export default function Project() {
   const { slug } = useParams()
   const { loading, data: projects } = useProjectsContent()
+  const { t } = useTranslation()
 
   const project = projects.find((p) => p.slug === slug)
   const related = projects.filter((p) => p.slug !== slug).slice(0, 2)
@@ -44,7 +46,7 @@ export default function Project() {
           <svg className="w-3 h-3" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
             <path strokeLinecap="round" strokeLinejoin="round" d="M10 3L5 8l5 5" />
           </svg>
-          Back
+          {t('projects.back')}
         </Link>
       </div>
 
@@ -106,7 +108,7 @@ export default function Project() {
           <section className="px-4 pb-16 pt-12 sm:px-8 border-t border-line">
             <div className="mx-auto w-full max-w-7xl">
               <h2 className="text-2xl sm:text-3xl font-bold text-ink tracking-tight mb-8">
-                More projects
+                {t('projects.moreProjects')}
               </h2>
               <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-2xl">
                 {related.map((item, i) => (

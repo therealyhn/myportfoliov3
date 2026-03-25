@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Button from '../ui/Button'
+import useTranslation from '../../hooks/useTranslation'
 
 const SOCIALS = [
   {
@@ -36,6 +37,7 @@ const INITIAL_FORM = { name: '', email: '', message: '' }
 export default function ContactSection() {
   const [form, setForm] = useState(INITIAL_FORM)
   const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const { t } = useTranslation()
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -77,16 +79,17 @@ export default function ContactSection() {
           <div className="flex-1 flex flex-col gap-10">
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
-                Contact
+                {t('contact.label')}
               </p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ink tracking-tight leading-tight">
-                Let's work<br />together
+                {t('contact.heading').split('\n').map((line, i, arr) => (
+                  <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+                ))}
               </h2>
             </div>
 
             <p className="text-base sm:text-lg text-muted leading-relaxed font-light max-w-sm">
-              Have a project in mind or want to discuss a collaboration?
-              Send me a message and I'll get back to you.
+              {t('contact.subtext')}
             </p>
 
             <div className="flex flex-col gap-3">
@@ -126,17 +129,17 @@ export default function ContactSection() {
           <div className="flex-1 lg:max-w-lg w-full">
             {status === 'success' ? (
               <div className="h-full flex flex-col justify-center gap-4 py-12 border-l-2 border-accent pl-8">
-                <p className="text-xs font-semibold uppercase tracking-widest text-accent">Sent</p>
-                <p className="text-2xl font-bold text-ink tracking-tight">Message received.</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-accent">{t('contact.success.label')}</p>
+                <p className="text-2xl font-bold text-ink tracking-tight">{t('contact.success.heading')}</p>
                 <p className="text-muted text-sm leading-relaxed">
-                  Thanks for reaching out — I'll get back to you as soon as possible.
+                  {t('contact.success.text')}
                 </p>
                 <button
                   type="button"
                   onClick={() => setStatus('idle')}
                   className="text-xs text-muted hover:text-ink underline underline-offset-4 transition-colors duration-200 w-fit"
                 >
-                  Send another message
+                  {t('contact.success.another')}
                 </button>
               </div>
             ) : (
@@ -146,7 +149,7 @@ export default function ContactSection() {
 
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="contact-name" className="text-xs font-medium text-muted uppercase tracking-wider">
-                    Name
+                    {t('contact.form.name')}
                   </label>
                   <input
                     id="contact-name"
@@ -154,7 +157,7 @@ export default function ContactSection() {
                     name="name"
                     required
                     autoComplete="name"
-                    placeholder="Your name"
+                    placeholder={t('contact.form.namePlaceholder')}
                     value={form.name}
                     onChange={handleChange}
                     className="w-full bg-surface border border-line px-4 py-3 text-sm text-ink placeholder:text-muted/40 focus:outline-none focus:border-accent/50 transition-colors duration-200"
@@ -163,7 +166,7 @@ export default function ContactSection() {
 
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="contact-email" className="text-xs font-medium text-muted uppercase tracking-wider">
-                    Email
+                    {t('contact.form.email')}
                   </label>
                   <input
                     id="contact-email"
@@ -171,7 +174,7 @@ export default function ContactSection() {
                     name="email"
                     required
                     autoComplete="email"
-                    placeholder="your@email.com"
+                    placeholder={t('contact.form.emailPlaceholder')}
                     value={form.email}
                     onChange={handleChange}
                     className="w-full bg-surface border border-line px-4 py-3 text-sm text-ink placeholder:text-muted/40 focus:outline-none focus:border-accent/50 transition-colors duration-200"
@@ -180,14 +183,14 @@ export default function ContactSection() {
 
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="contact-message" className="text-xs font-medium text-muted uppercase tracking-wider">
-                    Message
+                    {t('contact.form.message')}
                   </label>
                   <textarea
                     id="contact-message"
                     name="message"
                     required
                     rows={6}
-                    placeholder="Tell me about your project..."
+                    placeholder={t('contact.form.messagePlaceholder')}
                     value={form.message}
                     onChange={handleChange}
                     className="w-full bg-surface border border-line px-4 py-3 text-sm text-ink placeholder:text-muted/40 focus:outline-none focus:border-accent/50 transition-colors duration-200 resize-none"
@@ -196,7 +199,7 @@ export default function ContactSection() {
 
                 {status === 'error' && (
                   <p className="text-xs text-red-500">
-                    Something went wrong. Please try again or email me directly.
+                    {t('contact.form.error')}
                   </p>
                 )}
 
@@ -207,7 +210,7 @@ export default function ContactSection() {
                     disabled={status === 'loading'}
                     arrow={status !== 'loading'}
                   >
-                    {status === 'loading' ? 'Sending...' : 'Send message'}
+                    {status === 'loading' ? t('contact.form.sending') : t('contact.form.send')}
                   </Button>
                 </div>
               </form>

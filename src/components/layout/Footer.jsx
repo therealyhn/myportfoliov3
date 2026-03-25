@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom'
 import logoLight from '../../assets/logo-light.png'
 import logoDark from '../../assets/logo-dark.png'
 import LegalModal from '../ui/LegalModal'
+import useTranslation from '../../hooks/useTranslation'
 
 const NAV_LINKS = [
-  { href: '/#projects', label: 'Projects', type: 'hash' },
-  { href: '/#about', label: 'About', type: 'hash' },
-  { href: '/#contact', label: 'Contact', type: 'hash' },
-  { href: '/pricing', label: 'Pricing', type: 'route' },
+  { href: '/#projects', key: 'nav.projects', type: 'hash' },
+  { href: '/#about', key: 'nav.about', type: 'hash' },
+  { href: '/#contact', key: 'nav.contact', type: 'hash' },
+  { href: '/pricing', key: 'nav.pricing', type: 'route' },
 ]
 
 const SOCIALS = [
@@ -44,6 +45,7 @@ const SOCIALS = [
 export default function Footer() {
   const year = new Date().getFullYear()
   const [modal, setModal] = useState(null) // 'privacy' | 'terms' | null
+  const { t } = useTranslation()
 
   return (
     <footer className="border-t border-line">
@@ -61,21 +63,21 @@ export default function Footer() {
           {/* Nav */}
           <nav aria-label="Footer navigation">
             <ul className="flex flex-wrap gap-x-6 gap-y-2">
-              {NAV_LINKS.map(({ href, label, type }) => (
-                <li key={label}>
+              {NAV_LINKS.map(({ href, key, type }) => (
+                <li key={key}>
                   {type === 'hash' ? (
                     <a
                       href={href}
                       className="text-sm text-muted hover:text-ink transition-colors duration-200"
                     >
-                      {label}
+                      {t(key)}
                     </a>
                   ) : (
                     <Link
                       to={href}
                       className="text-sm text-muted hover:text-ink transition-colors duration-200"
                     >
-                      {label}
+                      {t(key)}
                     </Link>
                   )}
                 </li>

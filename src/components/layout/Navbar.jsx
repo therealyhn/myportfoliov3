@@ -3,6 +3,7 @@ import logoLight from '../../assets/logo-light.png'
 import logoDark from '../../assets/logo-dark.png'
 import NavLinks from '../nav/NavLinks'
 import ThemeToggle from '../nav/ThemeToggle'
+import LangToggle from '../nav/LangToggle'
 import VersionsDropdown from '../nav/VersionsDropdown'
 import MobileOverlay from '../nav/MobileOverlay'
 
@@ -38,6 +39,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-6">
             <NavLinks />
             <div className="flex items-center gap-2 pl-4 border-l border-line">
+              <LangToggle />
               <VersionsDropdown />
               <ThemeToggle />
             </div>
@@ -45,6 +47,7 @@ export default function Navbar() {
 
           {/* Mobile */}
           <div className="flex md:hidden items-center gap-2">
+            <LangToggle />
             <ThemeToggle />
             <button
               type="button"

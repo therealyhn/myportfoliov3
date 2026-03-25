@@ -1,5 +1,6 @@
 import heroImg from '../../assets/hero.png'
 import Button from '../ui/Button'
+import useTranslation from '../../hooks/useTranslation'
 
 const TECH = [
   {
@@ -113,6 +114,14 @@ const TECH = [
 ]
 
 export default function AboutSection() {
+  const { t } = useTranslation()
+
+  const BADGES = [
+    { key: 'about.badge.location' },
+    { key: 'about.badge.experience' },
+    { key: 'about.badge.openToWork' },
+  ]
+
   return (
     <section id="about" className="py-20 lg:py-28 border-t border-line">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -120,10 +129,10 @@ export default function AboutSection() {
         {/* Header */}
         <div className="mb-12 lg:mb-16">
           <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
-            About
+            {t('about.label')}
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ink tracking-tight leading-tight">
-            Who I am
+            {t('about.heading')}
           </h2>
         </div>
 
@@ -154,18 +163,18 @@ export default function AboutSection() {
               </div>
               <div className="flex flex-col gap-3 min-w-0 flex-1 pt-1">
                 <div className="flex flex-col gap-1.5">
-                  {['Serbia · Remote', '2+ yrs experience', 'Open to work'].map((label) => (
+                  {BADGES.map(({ key }) => (
                     <span
-                      key={label}
+                      key={key}
                       className="px-2.5 py-1 text-xs font-medium text-muted border-l-2 border-accent/30 bg-surface"
                     >
-                      {label}
+                      {t(key)}
                     </span>
                   ))}
                 </div>
                 <div className="flex flex-col gap-2 pt-1">
-                  <Button variant="primary" href="#contact" arrow>Get in touch</Button>
-                  <Button variant="ghost" href="/JovanLjusicCV.pdf" download>Download CV</Button>
+                  <Button variant="primary" href="#contact" arrow>{t('about.cta.contact')}</Button>
+                  <Button variant="ghost" href="/JovanLjusicCV.pdf" download>{t('about.cta.cv')}</Button>
                 </div>
               </div>
             </div>
@@ -194,38 +203,30 @@ export default function AboutSection() {
 
               <div className="flex flex-col gap-5">
                 <p className="text-base sm:text-lg text-muted leading-relaxed font-light">
-                  I'm a frontend engineer based in Serbia, focused on building fast,
-                  accessible, and visually sharp digital products — from marketing sites
-                  to complex web and mobile applications.
+                  {t('about.bio1')}
                 </p>
                 <p className="text-base sm:text-lg text-muted leading-relaxed font-light">
-                  I also work across the full stack when the project calls for it —
-                  handling API design, database architecture, and backend logic.
-                  I care about the details that most people don't notice until they're missing.
+                  {t('about.bio2')}
                 </p>
               </div>
             </div>
 
             {/* Badges — sm+ only (mobile shows them next to image) */}
             <div className="hidden sm:flex flex-wrap gap-2">
-              {[
-                { label: 'Serbia · Remote' },
-                { label: '2+ yrs experience' },
-                { label: 'Open to work' },
-              ].map(({ label }) => (
+              {BADGES.map(({ key }) => (
                 <span
-                  key={label}
+                  key={key}
                   className="px-3 py-1.5 text-xs font-medium text-muted border-l-2 border-accent/30 bg-surface"
                 >
-                  {label}
+                  {t(key)}
                 </span>
               ))}
             </div>
 
             {/* CTA — sm+ only */}
             <div className="hidden sm:flex flex-wrap gap-3 pt-2">
-              <Button variant="primary" href="#contact" arrow>Get in touch</Button>
-              <Button variant="ghost" href="/JovanLjusicCV.pdf" download>Download CV</Button>
+              <Button variant="primary" href="#contact" arrow>{t('about.cta.contact')}</Button>
+              <Button variant="ghost" href="/JovanLjusicCV.pdf" download>{t('about.cta.cv')}</Button>
             </div>
           </div>
 
@@ -249,7 +250,6 @@ export default function AboutSection() {
           </div>
 
         </div>
-
 
       </div>
 

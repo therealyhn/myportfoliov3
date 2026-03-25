@@ -2,6 +2,7 @@ import logoLight from '../../assets/logo-light.png'
 import logoDark from '../../assets/logo-dark.png'
 import useScrollLock from '../../hooks/useScrollLock'
 import NavLinks from './NavLinks'
+import LangToggle from './LangToggle'
 import VersionsDropdown from './VersionsDropdown'
 
 export default function MobileOverlay({ open, onClose }) {
@@ -37,9 +38,12 @@ export default function MobileOverlay({ open, onClose }) {
       <div className="flex-1 overflow-y-auto px-4 pt-8 pb-10">
         <NavLinks onClick={onClose} mobile />
 
-        <div className="mt-8 pt-6 border-t border-line">
-          <p className="text-xs uppercase tracking-widest text-muted mb-3">Old versions</p>
-          <VersionsDropdown />
+        <div className="mt-8 pt-6 border-t border-line flex flex-col gap-4">
+          <LangToggle />
+          <div>
+            <p className="text-xs uppercase tracking-widest text-muted mb-3">Old versions</p>
+            <VersionsDropdown />
+          </div>
         </div>
       </div>
     </div>

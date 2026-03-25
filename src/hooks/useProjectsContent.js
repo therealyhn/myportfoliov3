@@ -3,14 +3,15 @@ import sanityClient from '../lib/sanityClient'
 import { PROJECTS_QUERY } from '../lib/sanityQueries'
 import { urlFor } from '../lib/sanityImage'
 
-function normalizeProject(raw) {
+function normalizeProject(raw, lang) {
+  const sr = lang === 'sr'
   return {
     id: raw._id,
-    title: raw.title,
+    title: (sr && raw.title_sr) || raw.title,
     slug: raw.slug,
-    tagline: raw.tagline || '',
-    overview: raw.overview || '',
-    role: raw.role || '',
+    tagline: (sr && raw.tagline_sr) || raw.tagline || '',
+    overview: (sr && raw.overview_sr) || raw.overview || '',
+    role: (sr && raw.role_sr) || raw.role || '',
     year: raw.year || '',
     duration: raw.duration || '',
     status: raw.status || '',
@@ -25,19 +26,19 @@ function normalizeProject(raw) {
   }
 }
 
-export default function useProjectsContent() {
+export default function useProjectsContent(lang = 'en') {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-  const [data, setData] = useState([])
+  const [raw, setRaw] = useState([])
 
   useEffect(() => {
     let cancelled = false
 
     sanityClient
       .fetch(PROJECTS_QUERY)
-      .then((raw) => {
+      .then((data) => {
         if (!cancelled) {
-          setData(raw.map(normalizeProject))
+          setRaw(data)
           setLoading(false)
         }
       })
@@ -52,6 +53,8 @@ export default function useProjectsContent() {
       cancelled = true
     }
   }, [])
+
+  const data = raw.map((p) => normalizeProject(p, lang))
 
   return { loading, error, data }
 }

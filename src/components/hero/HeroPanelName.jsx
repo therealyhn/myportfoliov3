@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import logoNoText from '../../assets/logo-no-text.png'
+import useTranslation from '../../hooks/useTranslation'
 
 const fadeIn = (active, delay) => ({
   opacity: active ? 1 : 0,
@@ -9,6 +10,7 @@ const fadeIn = (active, delay) => ({
 
 export default function HeroPanelName({ active }) {
   const [hovered, setHovered] = useState(false)
+  const { t } = useTranslation()
 
   return (
     <div className="w-screen h-full flex-shrink-0 relative flex flex-col">
@@ -49,7 +51,7 @@ export default function HeroPanelName({ active }) {
             <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
           </span>
           <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-            Available for work
+            {t('hero.available')}
           </span>
         </div>
       </div>
