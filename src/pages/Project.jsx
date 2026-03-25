@@ -4,6 +4,7 @@ import Navbar from '../components/layout/Navbar'
 import ProjectCard from '../components/projects/ProjectCard'
 import ProjectMeta from '../components/projects/ProjectMeta'
 import ProjectBody from '../components/projects/ProjectBody'
+import ProjectBodySwiper from '../components/projects/ProjectBodySwiper'
 import useProjectsContent from '../hooks/useProjectsContent'
 
 export default function Project() {
@@ -63,8 +64,8 @@ export default function Project() {
             <div className="mt-8">
               <ProjectMeta project={project} />
             </div>
-            <div className="mt-10 flex flex-col gap-3">
-              <ProjectBody project={project} />
+            <div className="mt-10">
+              <ProjectBodySwiper project={project} />
             </div>
           </div>
         </section>

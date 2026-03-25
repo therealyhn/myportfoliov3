@@ -1,3 +1,5 @@
+import { useRef, useState, useEffect } from 'react'
+
 function MetaField({ label, value }) {
   if (!value) return null
   return (
@@ -9,6 +11,26 @@ function MetaField({ label, value }) {
 }
 
 export default function ProjectMeta({ project }) {
+  const overviewRef = useRef(null)
+  const [showFade, setShowFade] = useState(false)
+
+  useEffect(() => {
+    const el = overviewRef.current
+    if (!el) return
+
+    const check = () => {
+      setShowFade(el.scrollHeight > el.clientHeight && el.scrollTop + el.clientHeight < el.scrollHeight - 4)
+    }
+
+    check()
+    el.addEventListener('scroll', check)
+    window.addEventListener('resize', check)
+    return () => {
+      el.removeEventListener('scroll', check)
+      window.removeEventListener('resize', check)
+    }
+  }, [project.overview])
+
   return (
     <div className="flex flex-col gap-10">
 
@@ -16,9 +38,16 @@ export default function ProjectMeta({ project }) {
       {project.overview && (
         <div>
           <p className="text-xs font-light leading-snug text-accent mb-3">overview</p>
-          <p className="text-base sm:text-lg text-muted leading-relaxed font-light">
-            {project.overview}
-          </p>
+          <div className="relative">
+            <div ref={overviewRef} className="max-h-44 md:max-h-[500px] overflow-y-auto no-scrollbar">
+              <p className="text-base sm:text-lg text-muted leading-relaxed font-light">
+                {project.overview}
+              </p>
+            </div>
+            <div
+              className={`absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-page to-transparent pointer-events-none transition-opacity duration-300 ${showFade ? 'opacity-100' : 'opacity-0'}`}
+            />
+          </div>
         </div>
       )}
 
