@@ -4,6 +4,7 @@ import Navbar from '../components/layout/Navbar'
 import HeroSection from '../components/sections/HeroSection'
 import ProjectsSection from '../components/sections/ProjectsSection'
 import AboutSection from '../components/sections/AboutSection'
+import ContactSection from '../components/sections/ContactSection'
 
 function Home() {
   const { hash } = useLocation()
@@ -25,6 +26,7 @@ function Home() {
         <HeroSection />
         <ProjectsSection />
         <AboutSection />
+        <ContactSection />
       </main>
     </>
   )

@@ -1,17 +1,16 @@
 import { Link } from 'react-router-dom'
 
 const LINKS = [
-  { href: '/#projects', label: 'Projects', index: '01', type: 'hash' },
-  { href: '/#about', label: 'About', index: '02', type: 'hash' },
-  { href: '/#contact', label: 'Contact', index: '03', type: 'hash' },
-  { href: '/pricing', label: 'Pricing', index: '04', type: 'route' },
+  { href: '/#projects', label: 'Projects', type: 'hash' },
+  { href: '/#about', label: 'About', type: 'hash' },
+  { href: '/#contact', label: 'Contact', type: 'hash' },
+  { href: '/pricing', label: 'Pricing', type: 'route' },
 ]
 
-function NavItem({ children, index, mobile = false }) {
+function NavItem({ children, mobile = false }) {
   if (mobile) {
     return (
       <span className="group flex items-center  gap-3 text-base font-semibold text-ink hover:text-accent transition-colors duration-200 cursor-pointer">
-        <span className="text-[10px] font-bold  tracking-widest text-muted/50 font-mono w-5">{index}</span>
         {children}
       </span>
     )
@@ -19,7 +18,6 @@ function NavItem({ children, index, mobile = false }) {
 
   return (
     <span className="group relative flex items-center uppercase gap-1.5 py-1 text-sm font-medium text-muted hover:text-ink transition-colors duration-200 cursor-pointer">
-      <span className="text-[9px] font-bold tracking-wider text-muted/40 font-mono">{index}</span>
       {children}
       <span className="pointer-events-none absolute left-0 -bottom-0.5 h-px w-0
         bg-accent transition-all duration-300 group-hover:w-full" />
@@ -32,15 +30,15 @@ export default function NavLinks({ onClick, mobile = false }) {
 
   return (
     <ul className={base}>
-      {LINKS.map(({ href, label, index, type }) => (
+      {LINKS.map(({ href, label, type }) => (
         <li key={label} onClick={onClick}>
           {type === 'hash' ? (
             <a href={href}>
-              <NavItem index={index} mobile={mobile}>{label}</NavItem>
+              <NavItem mobile={mobile}>{label}</NavItem>
             </a>
           ) : (
             <Link to={href}>
-              <NavItem index={index} mobile={mobile}>{label}</NavItem>
+              <NavItem mobile={mobile}>{label}</NavItem>
             </Link>
           )}
         </li>

@@ -1,4 +1,5 @@
 import heroImg from '../../assets/hero.png'
+import Button from '../ui/Button'
 
 const TECH = [
   {
@@ -186,25 +187,8 @@ export default function AboutSection() {
 
             {/* CTA */}
             <div className="flex flex-wrap gap-3 pt-2">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white text-sm font-semibold hover:bg-accent/90 active:scale-[0.98] transition-all duration-200"
-              >
-                Get in touch
-                <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8h10M9 4l4 4-4 4" />
-                </svg>
-              </a>
-              <a
-                href="/JovanLjusicCV.pdf"
-                download
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-ink text-sm font-semibold ring-1 ring-line hover:ring-accent/40 active:scale-[0.98] transition-all duration-200"
-              >
-                Download CV
-                <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 3v7M5 7l3 3 3-3M3 13h10" />
-                </svg>
-              </a>
+              <Button variant="primary" href="#contact" arrow>Get in touch</Button>
+              <Button variant="ghost" href="/JovanLjusicCV.pdf" download>Download CV</Button>
             </div>
           </div>
 
