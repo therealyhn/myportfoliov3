@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import SEO from '../components/shared/SEO'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import HeroSection from '../components/sections/HeroSection'
@@ -22,6 +23,7 @@ function Home() {
 
   return (
     <>
+      <SEO />
       <Navbar />
       <main className="pt-16">
         <HeroSection />

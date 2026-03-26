@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import SEO from '../components/shared/SEO'
 import Navbar from '../components/layout/Navbar'
 import Button from '../components/ui/Button'
 
@@ -171,6 +172,11 @@ export default function Pricing() {
 
   return (
     <>
+      <SEO
+        title="Pricing"
+        description="Web development pricing — websites, web apps, and maintenance packages. Clear packages, no hidden costs."
+        url="/pricing"
+      />
       <Navbar />
       <main className="min-h-screen">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-24">

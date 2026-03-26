@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
+import SEO from '../components/shared/SEO'
 import Navbar from '../components/layout/Navbar'
 import ProjectCard from '../components/projects/ProjectCard'
 import ProjectMeta from '../components/projects/ProjectMeta'
@@ -37,6 +38,12 @@ export default function Project() {
 
   return (
     <>
+      <SEO
+        title={project.title}
+        description={project.tagline || project.overview?.slice(0, 160) || undefined}
+        url={`/projects/${project.slug}`}
+        type="article"
+      />
       <Navbar />
 
       {/* Back — fixed top-left */}
