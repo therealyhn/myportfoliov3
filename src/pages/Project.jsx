@@ -41,6 +41,7 @@ export default function Project() {
       <SEO
         title={project.title}
         description={project.tagline || project.overview?.slice(0, 160) || undefined}
+        image={project.image || undefined}
         url={`/projects/${project.slug}`}
         type="article"
       />
