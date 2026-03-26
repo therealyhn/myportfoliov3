@@ -18,9 +18,9 @@ function normalizeProject(raw, lang) {
     techStack: Array.isArray(raw.techStack) ? raw.techStack : [],
     liveUrl: raw.liveUrl || null,
     githubUrl: raw.githubUrl || null,
-    image: raw.coverImage ? urlFor(raw.coverImage).width(800).auto('format').url() : null,
+    image: raw.coverImage ? urlFor(raw.coverImage).width(800).auto('format').quality(80).url() : null,
     galleryImages: Array.isArray(raw.galleryImages)
-      ? raw.galleryImages.map((img) => urlFor(img).width(1400).auto('format').url())
+      ? raw.galleryImages.map((img) => urlFor(img).width(1400).auto('format').quality(80).url())
       : [],
     order: raw.order ?? 999,
   }

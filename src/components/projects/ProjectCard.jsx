@@ -31,6 +31,8 @@ export default function ProjectCard({ project, index = 0 }) {
             <img
               src={project.image}
               alt={`${project.title} preview`}
+              width={800}
+              height={260}
               loading="lazy"
               decoding="async"
               className="h-[200px] w-full object-cover transition-transform duration-500

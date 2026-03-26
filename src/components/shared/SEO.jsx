@@ -30,6 +30,7 @@ export default function SEO({
       <meta property="og:url" content={fullUrl} />
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content={SITE_NAME} />
+      <meta name="google-site-verification" content="c7vnv5otwEqqxRlMzziphpaRg60bw8ukUVs7yaFATyA" />
 
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
