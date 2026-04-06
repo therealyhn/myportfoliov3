@@ -13,7 +13,8 @@ function MetaField({ label, value }) {
 
 export default function ProjectMeta({ project }) {
   const overviewRef = useRef(null)
-  const [showFade, setShowFade] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false)
+  const [needsToggle, setNeedsToggle] = useState(false)
   const { t } = useTranslation()
 
   useEffect(() => {
@@ -21,14 +22,12 @@ export default function ProjectMeta({ project }) {
     if (!el) return
 
     const check = () => {
-      setShowFade(el.scrollHeight > el.clientHeight && el.scrollTop + el.clientHeight < el.scrollHeight - 4)
+      setNeedsToggle(el.scrollHeight > el.clientHeight)
     }
 
     check()
-    el.addEventListener('scroll', check)
     window.addEventListener('resize', check)
     return () => {
-      el.removeEventListener('scroll', check)
       window.removeEventListener('resize', check)
     }
   }, [project.overview])
@@ -40,15 +39,26 @@ export default function ProjectMeta({ project }) {
       {project.overview && (
         <div>
           <p className="text-xs font-light leading-snug text-accent mb-3">{t('project.meta.overview')}</p>
-          <div className="relative">
-            <div ref={overviewRef} className="max-h-44 sm:max-h-72 md:max-h-[500px] overflow-y-auto no-scrollbar">
-              <p className="text-base sm:text-lg text-muted leading-relaxed font-light">
+          <div>
+            <div className="relative">
+              <div
+                ref={overviewRef}
+                className={`text-base sm:text-lg text-muted leading-relaxed font-light ${!isExpanded ? 'line-clamp-[8]' : ''}`}
+              >
                 {project.overview}
-              </p>
+              </div>
+              {!isExpanded && needsToggle && (
+                <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-page to-transparent pointer-events-none" />
+              )}
             </div>
-            <div
-              className={`absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-page to-transparent pointer-events-none transition-opacity duration-300 ${showFade ? 'opacity-100' : 'opacity-0'}`}
-            />
+            {needsToggle && (
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="mt-3 text-sm font-bold text-ink hover:text-accent focus:outline-none transition-colors duration-200"
+              >
+                {isExpanded ? t('projects.seeLess') : t('projects.seeMore')}
+              </button>
+            )}
           </div>
         </div>
       )}

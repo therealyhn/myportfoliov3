@@ -5,7 +5,6 @@
   "nav.pricing": "Pricing",
   "nav.resume": "Resume",
   "nav.oldVersions": "Old versions",
-
   "hero.available": "Available for work",
   "hero.role": "Front-End Engineer",
   "hero.building": "Building for the web since",
@@ -15,7 +14,6 @@
   "hero.badge.location": "Serbia · Remote",
   "hero.badge.experience": "2+ yrs experience",
   "hero.badge.openToWork": "Open to work",
-
   "about.label": "About",
   "about.heading": "Who I am",
   "about.bio1": "I'm a frontend engineer based in Serbia, focused on building fast, accessible, and visually sharp digital products — from marketing sites to complex web and mobile applications.",
@@ -25,16 +23,14 @@
   "about.badge.openToWork": "Open to work",
   "about.cta.contact": "Get in touch",
   "about.cta.cv": "Download CV",
-
   "projects.label": "Work",
   "projects.heading": "Selected Work",
-  "projects.seeMore": "See more projects",
+  "projects.seeMore": "See more",
   "projects.seeLess": "See less",
   "projects.error": "Failed to load projects.",
   "projects.back": "Back",
   "projects.moreProjects": "More projects",
   "projects.noImages": "No images",
-
   "contact.label": "Contact",
   "contact.heading": "Let's work\ntogether",
   "contact.subtext": "Have a project in mind or want to discuss a collaboration? Send me a message and I'll get back to you.",
@@ -51,7 +47,6 @@
   "contact.success.heading": "Message received.",
   "contact.success.text": "Thanks for reaching out — I'll get back to you as soon as possible.",
   "contact.success.another": "Send another message",
-
   "project.meta.overview": "overview",
   "project.meta.role": "role",
   "project.meta.year": "year",
@@ -60,7 +55,6 @@
   "project.meta.stack": "stack",
   "project.meta.liveSite": "Live Site",
   "project.meta.github": "GitHub",
-
   "pricing.label": "services",
   "pricing.heading": "Work with me.",
   "pricing.subtext": "Transparent pricing for websites, apps and monthly maintenance. Every quote is tailored to the project scope.",

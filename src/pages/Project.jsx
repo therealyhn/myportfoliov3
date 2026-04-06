@@ -101,12 +101,12 @@ export default function Project() {
           <div className="mt-12 flex items-start">
 
             {/* Left — sticky meta, 1/3 width */}
-            <div className="w-1/3 shrink-0 pl-8 lg:pl-16 xl:pl-24 pr-10 lg:pr-14 xl:pr-16 lg:sticky lg:top-28 lg:pt-14">
+            <div className="w-1/3 shrink-0 pl-8 lg:pl-16 xl:pl-24 pr-10 lg:pr-14 xl:pr-16 lg:sticky lg:top-[120px] xl:top-[96px] 2xl:top-[80px] lg:pt-6">
               <ProjectMeta project={project} />
             </div>
 
             {/* Right — scrollable gallery, 2/3 width */}
-            <div className="w-2/3 min-w-0 flex flex-col gap-3 pr-6 lg:h-[calc(100vh-140px)] lg:overflow-y-auto no-scrollbar lg:sticky lg:top-28">
+            <div className="w-2/3 min-w-0 flex flex-col gap-3 pr-6 lg:pt-6">
               <ProjectBody project={project} />
             </div>
 
